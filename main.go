@@ -7,7 +7,6 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"net/url"
 	"os"
 	"time"
 
@@ -23,13 +22,12 @@ type Entry struct {
 }
 
 const (
-	version = "1.0.0"
-	app_url = "https://go-itquiz.herokuapp.com/data"
+	version = "1.0.1"
+	app_url = "https://go-itquiz.herokuapp.com/data/ja"
 )
 
 func action(c *cli.Context) error {
-	form := url.Values{}
-	res, err := http.PostForm(app_url, form)
+	res, err := http.Get(app_url)
 	if err != nil {
 		log.Fatal(err)
 		return err
