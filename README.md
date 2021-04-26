@@ -1,5 +1,5 @@
 # go-itquiz-cli
-CLI tool for [go-itquiz](https://github.com/chgzm/go-itquiz)
+CLI tool for [Easy ITQuiz](https://go-itquiz.herokuapp.com/)
 
 # Usage
 ```
