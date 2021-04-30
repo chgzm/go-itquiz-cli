@@ -22,12 +22,20 @@ type Entry struct {
 }
 
 const (
-	version = "1.0.1"
-	app_url = "https://go-itquiz.herokuapp.com/data/ja"
+	version    = "1.0.1"
+	app_url_ja = "https://go-itquiz.herokuapp.com/data/ja"
+	app_url_en = "https://go-itquiz.herokuapp.com/data/en"
 )
 
 func action(c *cli.Context) error {
-	res, err := http.Get(app_url)
+	var url string
+	if c.Bool("japanese") {
+		url = app_url_ja
+	} else {
+		url = app_url_en
+	}
+
+	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
 		return err
@@ -102,6 +110,13 @@ func main() {
 	app.Usage = "IT Quiz in CLI"
 	app.Version = version
 	app.Action = action
+
+	app.Flags = []cli.Flag{
+		cli.BoolFlag{
+			Name:  "japanese, j",
+			Usage: "Switch to Japanese mode",
+		},
+	}
 
 	err := app.Run(os.Args)
 	if err != nil {
