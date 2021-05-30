@@ -20,5 +20,5 @@ Correct!!
 ...
 ```
 
-# Licnese
+# Licenese
 MIT
