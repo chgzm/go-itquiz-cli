@@ -20,5 +20,5 @@ Correct!!
 ...
 ```
 
-# Licenese
+# License
 MIT
